@@ -1,3 +1,5 @@
+#include "tick.h"
+#include "input.h"
 #include "screen.h"
 
 int main(int argc, char *argv[])
@@ -6,6 +8,9 @@ int main(int argc, char *argv[])
 
     for (;;)
     {
+        input();
+        tick();
+
         screen_clear(0x000000);
 
         screen_update();
