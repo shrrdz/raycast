@@ -1,6 +1,8 @@
+#include "def.h"
 #include "tick.h"
 #include "input.h"
 #include "screen.h"
+#include "raycast.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +14,8 @@ int main(int argc, char *argv[])
         tick();
 
         screen_clear(0x000000);
+
+        raycast();
 
         screen_update();
     }
