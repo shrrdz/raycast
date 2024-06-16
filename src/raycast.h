@@ -3,6 +3,7 @@
 #include "def.h"
 #include "level.h"
 #include "render.h"
+#include "palette.h"
 
 // position of the observer
 vector2 view = { 12, 8 };
@@ -87,7 +88,7 @@ void raycast()
         int y_start = MAX(0, -wall_height / 2 + HEIGHT / 2);
         int y_end   = MIN(wall_height / 2 + HEIGHT / 2, HEIGHT - 1);
 
-        uint32_t wall_color = 0x20FFFFF;
+        uint32_t wall_color = palette_lookup(location(ray_position.x, ray_position.y));
 
         // make the y-sided walls darker
         if (side == SIDE_Y) wall_color = (wall_color >> 1) & 0x7F7F7F;
