@@ -1,6 +1,7 @@
 #pragma once
 
 #include "def.h"
+#include "level.h"
 
 SDL_Event event;
 
@@ -17,6 +18,37 @@ void input()
 {
     const uint8_t *key = SDL_GetKeyboardState(NULL);
 
+    float dx = direction.x * delta_tick;
+    float dy = direction.y * delta_tick;
+
+    // step forward
+    if (key[SDL_SCANCODE_W])
+    {
+        view.x += dx * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+        view.y += dy * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+    }
+
+    // step backward
+    if (key[SDL_SCANCODE_S])
+    {
+        view.x -= dx * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+        view.y -= dy * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+    }
+
+    // strafe left
+    if (key[SDL_SCANCODE_A])
+    {
+        view.x -= dy * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+        view.y += dx * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+    }
+
+    // strafe right
+    if (key[SDL_SCANCODE_D])
+    {
+        view.x += dy * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+        view.y -= dx * (key[SDL_SCANCODE_LSHIFT] ? SPRINT_SPEED : SPEED);
+    }
+    
     // rotate left
     if (key[SDL_SCANCODE_LEFT])
     {

@@ -5,7 +5,7 @@ A raycasting engine based on the one used in a 1992 game **Wolfenstein 3D**.
 
 ## Checklist
 - [x] view rotation
-- [ ] view translation
+- [x] view translation
 - [ ] collision detection
 - [x] solid color raycaster
 - [ ] texture-mapped raycaster

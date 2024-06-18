@@ -41,6 +41,9 @@ typedef int             bool;
 
 #define SENSITIVITY         1.6F
 
+#define SPEED               4
+#define SPRINT_SPEED        8
+
 //-----------------------------------------------------//
 
 typedef struct { float x, y; } vector2;

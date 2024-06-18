@@ -24,7 +24,7 @@ void raycast()
         // x coordinate in camera space
         float camera_x = 2 * x / (float) WIDTH - 1;
 
-        vector2 ray_position  = { view.x, view.y };
+        vector2 ray_position  = { (int) view.x, (int) view.y };
         vector2 ray_direction = { direction.x + plane.x * camera_x, direction.y + plane.y * camera_x };
 
         // distance the ray travels from first side to the next side
